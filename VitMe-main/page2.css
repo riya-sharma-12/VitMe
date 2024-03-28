@@ -1,0 +1,31 @@
+.row{
+    align-items: center;
+}
+.bg{
+    background-image: url("vitlogiin.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+.img1{
+    height: 30vh;
+    width: 25vw;
+    margin-top: 30%;
+    border-radius: 50%;
+}
+.img-container{
+    width: 40vw;
+    height: 45vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+.img2{
+    height:30vh;
+    width: 25vw;
+    border-radius: 50%;
+
+}
+h6{
+    font-size: 30px;
+}
