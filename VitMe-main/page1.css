@@ -139,8 +139,10 @@ span{
     margin-top: 2vw;
 }
 #p33{
-    height: 120vh;
-    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .p31{
     font-size: 5vw;
@@ -148,11 +150,96 @@ span{
     text-align: center;
 }
 .p322{
-    font-size: 1.7vw;
+    font-size: 22px;
     font-weight: 400;
     width: 70%;
 }
 #about3{
     display: flex;
     justify-content: center;
+}
+
+/* Animation for the header */
+.text1 h1 {
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Animation for the "Get Started" button */
+.text1 .button1 {
+    animation: slideInUp 1s ease-in-out;
+}
+
+/* Animation for the "About" section */
+#about3 {
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+/* Animation for the contact cards */
+.contact_d {
+    animation: fadeInRight 1s ease-in-out;
+}
+
+/* Animation for the contact card separator lines */
+.line {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Keyframes for fade in down animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for slide in up animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for fade in left animation */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes for fade in right animation */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes for fade in up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -1,74 +1,153 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    color:white;
+/* Reset default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.a{
-    margin: 3%;
-    margin-left: 15%;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
 }
-.nav{
-    display: flex;
-    padding: 30px;
-    justify-content: space-between;
-}
-#timetable{
-    margin-top: 5%;
-}
-.main{
+
+/* Main container */
+.main {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(vitmebackgroung.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
-#days{
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Days of the week */
+#days {
     display: flex;
     justify-content: space-around;
     width: 80%;
+    margin-bottom: 20px;
+    margin-left: 14%;
 }
-.parallogram1{
+
+.tab-links {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
-	height: 50px;
-	transform: skew(20deg);
-	background: #c45858;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #007bff, #4b7bff);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px; /* Adjusted font size */
 }
-.parallogram2{
+
+.tab-links:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Parallelogram styles */
+.parallogram {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
-	height: 50px;
-	transform: skew(20deg);
-	background: #4c43ae;
+    height: 50px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
-.parallogram3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-	height: 50px;
-	transform: skew(20deg);
-	background: #b6b645;
+
+.parallogram:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-.parallogram4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-	height: 50px;
-	transform: skew(20deg);
-	background: #3f7cba;
+
+.parallogram .text {
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
 }
-.parallogram5{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-	height: 50px;
-	transform: skew(20deg);
-	background: #575555;
+
+/* Parallelogram colors */
+.parallogram1 { background: #ff6b6b; }
+.parallogram2 { background: #70a1ff; }
+.parallogram3 { background: #32ff7e; }
+.parallogram4 { background: #feca57; }
+.parallogram5 { background: #ff9ff3; }
+
+/* Timetable */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 9%;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+thead {
+    background: linear-gradient(45deg, #007bff, #4b7bff);
+    color: #ffffff;
+}
+
+tbody tr {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e9e9e9;
+    transition: background-color 0.3s ease;
 }
