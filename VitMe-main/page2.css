@@ -7,9 +7,9 @@
     height: 100vh;
 }
 .img1{
-    height: 30vh;
-    width: 25vw;
-    margin-top: 30%;
+    height:40vh;
+    width: 20vw;
+    margin-top: 45%;
     border-radius: 50%;
 }
 .img-container{
@@ -21,8 +21,8 @@
     justify-content: center;
 }
 .img2{
-    height:30vh;
-    width: 25vw;
+    height:40vh;
+    width: 20vw;
     border-radius: 50%;
 
 }

@@ -12,7 +12,9 @@ body {
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 90vh;
+    height: 84vh;
+    background-color: rgb(65, 119, 129);
+    border: 1px solid white;
   }
   
   h1, h2 {
@@ -20,7 +22,7 @@ body {
   }
   
   form {
-    margin-top: 20px;
+    margin-top: 15px;
   }
   
   input[type="text"],

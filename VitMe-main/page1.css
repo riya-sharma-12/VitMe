@@ -9,6 +9,57 @@ h1{
     font-size: 100px;
 
 }
+#nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:6vh;
+    width:100%;
+    padding:20px 0;
+    background-color: #193c7e;
+    box-shadow: 0px 4px 8px 0px rgba(255, 255, 255, 0.25);
+}
+#nav img{
+    margin-left:20px;
+    height: 40px;
+}
+#nleft , #nright{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+#nright{
+    margin-right:20px;
+    display:flex;
+    align-items: center;
+}
+#e{
+    width: 10vw;
+    text-align: center;
+}
+#nleft a{
+    pointer-events: all;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2vw;
+    font-weight:700;
+}
+#nright a{
+    pointer-events: all;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    font-weight:500;
+}
+#nright a:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 10vw;
+    background-color: #041939;
+    color:black;
+}
 h4{
     font-size: 30px;
 }
@@ -20,14 +71,18 @@ h4{
     height: 90px;
     width: 170px;
     font-size: 25px;
-    background-color: green;
+    background-color: #4CAF50;
     border-width: 0px;
     border-radius: 20px;
     color: white;
 }
-.con{
+.combine{
     background-image: url("vitmebackgroung.jpg");
     background-size: cover;
+}
+.con{
+    position: relative;
+    
     height: 100vh;
 }
 .div5{
@@ -84,9 +139,8 @@ span{
     margin-top: 2vw;
 }
 #p33{
-    background-image: url("vitmebackgroung.jpg");
-    background-size: cover;
-    height: 60vh;
+    height: 120vh;
+    position: relative;
 }
 .p31{
     font-size: 5vw;
