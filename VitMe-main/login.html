@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <title>Login Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <style>
+        body{
+            background-image: url(vitmebackgroung.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h2{
+            margin-bottom: 10px;
+            margin-left: 40%;
+        }
+        .login-container {
+            background-color: rgb(65,119,129);
+            max-width: 400px;
+            margin: 12% auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .login-container input {
+            width: 90%;
+            margin-bottom: 20px;
+            margin-left: 2%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .login-container button {
+            width: 94.5%;
+            padding: 10px;
+            margin-left: 2%;
+            border: none;
+            border-radius: 3px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .login-container .signup-btn {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #anc{
+            color:white;
+        }
+        #first{
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container" ng-controller="LoginController">
+    <h2 id="first">Login</h2>
+    <form action="studentblockSelectionPage3.html">
+        <input type="text" placeholder="Username" ng-model="username" required><br>
+        <input type="password" placeholder="Password" ng-model="password" required><br>
+        <button type="submit" ng-click="login()">Login</button>
+    </form>
+    <div class="signup-btn">
+        <span>New user? </span><a id="anc" href="signup.html">Sign up</a>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('loginApp', []);
+
+    app.controller('LoginController', function($scope) {
+        $scope.login = function() {
+            // Here you would typically make an API call to authenticate the user
+            // For demonstration purposes, we'll just log the username and password
+            console.log('Username: ' + $scope.username);
+            console.log('Password: ' + $scope.password);
+            // You can add your authentication logic here
+        };
+    });
+</script>
+
+</body>
+</html>l

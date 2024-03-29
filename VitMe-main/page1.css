@@ -25,3 +25,80 @@ h4{
     border-radius: 20px;
     color: white;
 }
+.con{
+    background-image: url("vitmebackgroung.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+.div5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7vh; 
+    font-size: 4vw;
+    font-weight: 700;
+}
+#container3{
+    display: flex;
+    justify-content: space-evenly;
+}
+.contact_d{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 89vh;
+}
+.i{
+    margin-top:2vh;
+    width: 20vw;
+    height: 30vh;
+    background-color: white;
+}
+.b{
+    margin: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+p{
+    font-size: 1.25vw;
+    font-weight: 200;
+}
+span{
+    font-size: 1.75vw;
+    font-weight: 700;
+}
+.c{
+    margin-bottom: 1vh;
+    margin-top: -12vh;
+}
+.c img{
+    margin-right: 8px;
+}
+.line{
+    width: 0.3vw;
+    background-color: black;
+    height: 40vh;
+    margin-top: 2vw;
+}
+#p33{
+    background-image: url("vitmebackgroung.jpg");
+    background-size: cover;
+    height: 60vh;
+}
+.p31{
+    font-size: 5vw;
+    font-weight: 600;
+    text-align: center;
+}
+.p322{
+    font-size: 1.7vw;
+    font-weight: 400;
+    width: 70%;
+}
+#about3{
+    display: flex;
+    justify-content: center;
+}
