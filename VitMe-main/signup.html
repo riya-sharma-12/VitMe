@@ -4,18 +4,36 @@
     <title>Signup Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <style>
-        body {
+        body{
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-image: url("vitmebackgroung.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
+    background-size: cover;
+    height: 100vh;
+        }
+.body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 80vh;
         }
+        .nav{
+            padding: 30px;
+        }
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}
 
         .signup-container {
             background: rgba(255, 255, 255, 0.9);
@@ -150,7 +168,9 @@
     </style>
 </head>
 <body>
-
+    <div class="nav"><div><a href="page2.html">Go back to the main page</a></div></div>
+    <div class="body">
+        
 <div class="signup-container" ng-controller="SignupController">
     <h1>Sign Up</h1>
     <form action="login.html" name="signupForm" novalidate>
@@ -170,6 +190,7 @@
     </div>
 </div>
 
+    </div>
 <script>
     var app = angular.module('signupApp', []);
 

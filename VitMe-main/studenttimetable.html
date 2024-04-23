@@ -28,11 +28,11 @@
         </div> 
         <div class="a">
             <div id="days">
-                <button class="tab-links parallogram1" onclick="changeDay(0)">Monday</button>
-                <button class="tab-links parallogram2" onclick="changeDay(1)">Tuesday</button>
-                <button class="tab-links parallogram3" onclick="changeDay(2)">Wednesday</button>
-                <button class="tab-links parallogram4" onclick="changeDay(3)">Thursday</button>
-                <button class="tab-links parallogram5" onclick="changeDay(4)">Friday</button>
+                <button class="tab-links parallogram1" onclick="changeDay('Monday')">Monday</button>
+                <button class="tab-links parallogram2" onclick="changeDay('Tuesday')">Tuesday</button>
+                <button class="tab-links parallogram3" onclick="changeDay('Wednesday')">Wednesday</button>
+                <button class="tab-links parallogram4" onclick="changeDay('Thursday')">Thursday</button>
+                <button class="tab-links parallogram5" onclick="changeDay('Friday')">Friday</button>
             </div>
         
             <table id="timetable">
@@ -48,65 +48,16 @@
                         <th>5:00pm-5:50pm</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="timetableBody">
                     <!-- Table rows will be dynamically added here -->
                 </tbody>
             </table>
         </div>
     </div>
     <script>
-        // JSON data
-        const timetableData = {
-            "Monday": {
-                "0": [{"room": "G01"}, {"room": "G02"}, {"room": ""}, {"room": "G04"}, {"room": "G05"},{"room": ""}, {"room": "G02"}],
-                "1": [{"room": ""}],
-                "2": [{"room": "G06"},{"room": "G01"}, {"room": ""}, {"room": ""}, {"room": "G05"}],
-                "3": [{"room": ""}],
-                "4": [{"room": "G07"}, {"room": "G08"}, {"room": "G09"}, {"room": "G10"}],
-                "5": [{"room": "G11"}],
-                "6": [{"room": "G12"}]
-            },
-            "Tuesday": {
-                "0": [{"room": "G13"}],
-                "1": [{"room": ""}, {"room": "G08"}, {"room": "G09"}, {"room": "G10"}],
-                "2": [{"room": "G14"}, {"room": "G15"}],
-                "3": [{"room": ""}],
-                "4": [{"room": "G16"}, {"room": "G17"}, {"room": "G18"}, {"room": "G19"}],
-                "5": [{"room": "G20"}],
-                "6": [{"room": "G21"}]
-            },
-            "Wednesday": {
-                "0": [{"room": ""}, {"room": "G22"}, {"room": "G23"}, {"room": "G24"}],
-                "1": [{"room": "G25"}],
-                "2": [{"room": ""}],
-                "3": [{"room": "G26"}],
-                "4": [{"room": ""}, {"room": "G27"}, {"room": "G28"}, {"room": "G29"}],
-                "5": [{"room": "G30"}],
-                "6": [{"room": "G31"}]
-            },
-            "Thursday": {
-                "0": [{"room": "G32"}],
-                "1": [{"room": ""}, {"room": "G33"}, {"room": "G34"}],
-                "2": [{"room": "G35"}],
-                "3": [{"room": ""}, {"room": "G08"}, {"room": "G09"}, {"room": "G10"}],
-                "4": [{"room": "G36"}],
-                "5": [{"room": "G37"}, {"room": "G38"}, {"room": "G39"}],
-                "6": [{"room": "G40"}]
-            },
-            "Friday": {
-                "0": [{"room": ""}, {"room": "G41"}, {"room": "G42"}],
-                "1": [{"room": "G43"}],
-                "2": [{"room": ""}],
-                "3": [{"room": "G44"}, {"room": "G45"}, {"room": "G46"}],
-                "4": [{"room": ""}],
-                "5": [{"room": "G47"}],
-                "6": [{"room": "G48"}]
-            }
-        };
-
-        // Function to create the timetable table
-        function createTimetable(day) {
-            const tableBody = document.querySelector("#timetable tbody");
+        // Function to create the timetable table dynamically
+        function createTimetable(day, data) {
+            const tableBody = document.getElementById("timetableBody");
             tableBody.innerHTML = '';
 
             // Loop through each floor
@@ -119,9 +70,9 @@
                 row.appendChild(floorCell);
 
                 // Loop through each time slot
-                for (let j = 0; j <=6; j++) {
+                for (let j = 0; j <= 6; j++) {
                     const cell = document.createElement("td");
-                    const classInfo = timetableData[day][j.toString()];
+                    const classInfo = data[day][j.toString()];
                     let roomText = "";
                     if (classInfo && classInfo.length > i) {
                         roomText = classInfo[i].room;
@@ -135,14 +86,16 @@
         }
 
         // Change the day when a button is clicked
-        function changeDay(dayIndex) {
-            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-            const selectedDay = days[dayIndex];
-            createTimetable(selectedDay);
+        function changeDay(day) {
+            const timetableData = JSON.parse(localStorage.getItem("timetableData"));
+            createTimetable(day, timetableData);
         }
 
         // Initialize with Monday timetable
-        createTimetable("Monday");
+        const timetableData = localStorage.getItem("timetableData");
+        if (timetableData) {
+            createTimetable("Monday", JSON.parse(timetableData));
+        }
         
         // Toggle visibility of timetable when any tab link is clicked
         $(document).ready(function(){

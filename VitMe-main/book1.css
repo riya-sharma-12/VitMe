@@ -5,14 +5,13 @@ body {
   }
   
   .container {
-    margin-top: -5px;
     max-width: 400px;
     margin: 0 auto;
     padding: 50px;
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 84vh;
+    height: 80vh;
     background-color: rgb(65, 119, 129);
     border: 1px solid white;
   }
@@ -48,4 +47,19 @@ body {
   button:hover {
     background-color: #45a049;
   }
-  
+  .nav{
+    margin-top: 20px;
+  }
+  .nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}

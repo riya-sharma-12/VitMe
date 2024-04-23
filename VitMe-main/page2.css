@@ -29,3 +29,20 @@
 h6{
     font-size: 30px;
 }
+.nav{
+    padding: 30px;
+    margin-bottom: -90px;
+}
+.nav a {
+color: #ffffff;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 5px;
+background-color: #007bff;
+transition: background-color 0.3s ease;
+font-weight: bold;
+}
+
+.nav a:hover {
+background-color: #0056b3;
+}

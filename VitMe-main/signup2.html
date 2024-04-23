@@ -4,18 +4,36 @@
     <title>Signup Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <style>
-        body {
+        body{
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-image: url("vitmebackgroung.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
+    background-size: cover;
+    height: 100vh;
+        }
+.body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 80vh;
         }
+        .nav{
+            padding: 30px;
+        }
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}
 
         .signup-container {
             background: rgba(255, 255, 255, 0.9);
@@ -150,26 +168,29 @@
     </style>
 </head>
 <body>
+    <div class="nav"><div><a href="page2.html">Go back to the main page</a></div></div>
+    <div class="body">
 
-<div class="signup-container" ng-controller="SignupController">
-    <h1>Sign Up</h1>
-    <form action="login2.html" name="signupForm" novalidate>
-        <input type="text" placeholder="Username" ng-model="username" required><br>
-        <input type="password" placeholder="Password" ng-model="password" required><br>
-        <input type="password" placeholder="Confirm Password" ng-model="confirmPassword" required><br>
-        <button type="submit" ng-click="signup()">Sign Up</button>
-        <div class="error-message" ng-show="signupForm.$submitted && signupForm.$invalid">
-            Please fill in all fields.
+        <div class="signup-container" ng-controller="SignupController">
+            <h1>Sign Up</h1>
+            <form action="login2.html" name="signupForm" novalidate>
+                <input type="text" placeholder="Username" ng-model="username" required><br>
+                <input type="password" placeholder="Password" ng-model="password" required><br>
+                <input type="password" placeholder="Confirm Password" ng-model="confirmPassword" required><br>
+                <button type="submit" ng-click="signup()">Sign Up</button>
+                <div class="error-message" ng-show="signupForm.$submitted && signupForm.$invalid">
+                    Please fill in all fields.
+                </div>
+                <div class="success-message" ng-show="signupSuccess">
+                    Signup successful! You can now <a href="login2.html">login</a>.
+                </div>
+            </form>
+            <div class="login-btn">
+                <span>Already have an account? </span><a href="login2.html">Login</a>
+            </div>
         </div>
-        <div class="success-message" ng-show="signupSuccess">
-            Signup successful! You can now <a href="login2.html">login</a>.
-        </div>
-    </form>
-    <div class="login-btn">
-        <span>Already have an account? </span><a href="login2.html">Login</a>
+        
     </div>
-</div>
-
 <script>
     var app = angular.module('signupApp', []);
 

@@ -4,17 +4,36 @@
     <title>Login Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <style>
-        body {
+        body{
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-image: url("vitmebackgroung.jpg");
     background-size: cover;
-            height: 100vh;
+    height: 100vh;
+        }
+.body {
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 80vh;
         }
+        .nav{
+            padding: 30px;
+        }
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}
 
         .login-container {
             background: rgba(255, 255, 255, 0.9);
@@ -105,16 +124,18 @@
     </style>
 </head>
 <body>
-
-<div class="login-container" ng-controller="LoginController">
-    <h1>Login</h1>
-    <form action="studentblockSelectionPage3.html">
-        <input type="text" placeholder="Username" ng-model="username" required><br>
-        <input type="password" placeholder="Password" ng-model="password" required><br>
-        <button type="submit" ng-click="login()">Login</button>
-    </form>
-    <div class="signup-btn">
-        <span>New user? </span><a id="anc" href="signup2.html">Sign up</a>
+<div class="nav"><div><a href="page2.html">Go back to the main page</a></div></div>
+<div class="body">
+    <div class="login-container" ng-controller="LoginController">
+        <h1>Login</h1>
+        <form action="studentblockSelectionPage3.html">
+            <input type="text" placeholder="Username" ng-model="username" required><br>
+            <input type="password" placeholder="Password" ng-model="password" required><br>
+            <button type="submit" ng-click="login()">Login</button>
+        </form>
+        <div class="signup-btn">
+            <span>New user? </span><a id="anc" href="signup2.html">Sign up</a>
+        </div>
     </div>
 </div>
 
