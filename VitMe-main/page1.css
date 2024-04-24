@@ -243,3 +243,11 @@ span{
         transform: translateY(0);
     }
 }
+.end{
+    text-align: center;
+    
+}
+.end a{
+    color: white;
+    text-decoration: none;
+}
