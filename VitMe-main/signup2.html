@@ -173,10 +173,9 @@
 
         <div class="signup-container" ng-controller="SignupController">
             <h1>Sign Up</h1>
-            <form action="login2.html" name="signupForm" novalidate>
-                <input type="text" placeholder="Username" ng-model="username" required><br>
-                <input type="password" placeholder="Password" ng-model="password" required><br>
-                <input type="password" placeholder="Confirm Password" ng-model="confirmPassword" required><br>
+            <form action="/login2.html" name="signupForm" novalidate method="post">
+                <input type="text" placeholder="Username" ng-model="username" required name="username"><br>
+                <input type="password" placeholder="Password" ng-model="password" required name="password"><br>
                 <button type="submit" ng-click="signup()">Sign Up</button>
                 <div class="error-message" ng-show="signupForm.$submitted && signupForm.$invalid">
                     Please fill in all fields.
