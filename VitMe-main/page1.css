@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+*{
+    color: white;
+}
 .bg{
     background-image: url("vitbg.jpg");
     background-size: cover;
@@ -6,7 +9,7 @@
 }
 h1{
     font-family: serif;
-    font-size: 100px;
+    font-size: 14vh;
 
 }
 #nav{
@@ -83,7 +86,6 @@ h4{
 .con{
     position: relative;
     
-    height: 100vh;
 }
 .div5{
     display: flex;
@@ -93,6 +95,7 @@ h4{
     height: 7vh; 
     font-size: 4vw;
     font-weight: 700;
+    color: black;
 }
 #container3{
     display: flex;
@@ -139,7 +142,6 @@ span{
     margin-top: 2vw;
 }
 #p33{
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -148,9 +150,10 @@ span{
     font-size: 5vw;
     font-weight: 600;
     text-align: center;
+    color: black;
 }
 .p322{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
     width: 70%;
 }
@@ -248,6 +251,40 @@ span{
     
 }
 .end a{
-    color: white;
+    color: black;
     text-decoration: none;
+    font-size: 3vh;
+    font-weight: bold;
+}
+@media(max-width:700px){
+    #container3{
+        flex-direction: column;
+    }
+    .line{
+        display: none;
+    }
+    .b p{
+        font-size: 3.5vh;
+    }
+    .b span{
+        font-size: 3.75vh;
+    }
+    .i{
+        width: 40vw;
+    }
+    .div5{
+        font-size: 5.5vh;
+    }
+    .p31{
+        font-size: 5.5vh;
+    }
+    #nright a{
+        font-size: 2vh;
+    }
+    #nright a:hover {
+        width: 12vw;
+    }
+    .p322{
+        font-size: 15px;
+    }
 }

@@ -1,15 +1,14 @@
 .row{
     align-items: center;
 }
-.bg{
-    background-image: url("vitlogiin.jpg");
+body{
+    background-image: url("vitmebackgroung.jpg");
     background-size: cover;
     height: 100vh;
 }
 .img1{
     height:40vh;
     width: 20vw;
-    margin-top: 45%;
     border-radius: 50%;
 }
 .img-container{

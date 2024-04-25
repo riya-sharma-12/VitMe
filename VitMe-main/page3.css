@@ -3,10 +3,6 @@
     margin:0;
     padding:0;
 }
-form{
-    padding:31.5px;
-    margin:23.5px;
-}
 .nav{
     display: flex;
     padding: 50px;
@@ -42,6 +38,7 @@ body{
 }
 .c{
     display:flex;
+    flex-wrap: wrap;
     justify-content:center;
 }
 p{
@@ -50,7 +47,7 @@ p{
     justify-content:center;
 }
 .b{
-    width: 60%;
+    width: 10%;
     border: 2px solid white;
     margin: 42.8px;
     padding: 43px;
@@ -61,4 +58,12 @@ input[type="button"]{
     width:16px;
     border-radius: 43px;
     margin:7px;
+}
+@media(max-width:1200px){
+    .a{
+        height: 130vh;
+    }
+    form{
+      font-size: 2vh;
+    }  
 }

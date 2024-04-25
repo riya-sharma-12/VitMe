@@ -226,3 +226,31 @@ tbody tr:hover {
     background-color: #e9e9e9;
     transition: background-color 0.3s ease;
 }
+@media(max-width:1300px){
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 70vh;
+        width: 106%;
+        margin-left: -84px;
+        margin-block-start: 48px;
+    }
+}
+@media(max-width:1005px){
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 55vh;
+        width: 112%;
+        margin-left: -106px;
+        margin-block-start: 48px;
+    }
+}
