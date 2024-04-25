@@ -128,9 +128,9 @@
 <div class="body">
     <div class="login-container" ng-controller="LoginController">
         <h1>Login</h1>
-        <form action="studentblockSelectionPage3.html">
-            <input type="text" placeholder="Username" ng-model="username" required><br>
-            <input type="password" placeholder="Password" ng-model="password" required><br>
+        <form action="/studentblockSelectionPage3" method="post">
+            <input type="text" placeholder="Username" ng-model="username" name="username" required><br>
+            <input type="password" placeholder="Password" ng-model="password" name="password" required><br>
             <button type="submit" ng-click="login()">Login</button>
         </form>
         <div class="signup-btn">
