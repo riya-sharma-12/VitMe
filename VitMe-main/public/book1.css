@@ -2,16 +2,17 @@ body {
   background-image: url(vitmebackgroung.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
   }
   
   .container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 5vw auto;
     padding: 50px;
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 80vh;
+    height: auto;
     background-color: rgb(65, 119, 129);
     border: 1px solid white;
   }

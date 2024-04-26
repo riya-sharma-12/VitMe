@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <link rel="stylesheet" type="text/css" href="page3.css">
-    </head>
-    <body>
-        <div class="a" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-            <div class="nav"><div><a href="page2.html">Go back to the main page</a></div></div>   
-            <form>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="page3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="a" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <div class="nav">
+            <div><a href="page2.html">Go back to the main page</a></div>
+        </div>   
+        <form id="academic_block_form">
             <p style="font-size:50px;"><b>Academic Block Selection</b></p>
             <div class="c">
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue"> SJT </a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >TT  </a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >PRP </a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >CDMM</a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >SMV </a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >GDN </a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >MB  </a><br></div>
-            <div class="b"><a href="studenttimetable.html"><input type="button" name="venue" value="venue" >MGR </a><br></div>          
+                <div class="b"><button type="button" name="venue" value="venue" data-target="SJT">SJT</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="TT">TT</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="PRP">PRP</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="CDMM">CDMM</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="SMV">SMV</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="GDN">GDN</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="MB">MB</button><br></div>
+                <div class="b"><button type="button" name="venue" value="venue" data-target="MGR">MGR</button><br></div>          
             </div>
         </form>
-            </div>
-        </body>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Add click event listener to buttons inside the form
+            $("#academic_block_form button").click(function() {
+                // Get the value of the button (venue name)
+                var venue = $(this).data("target");
+                
+                // Make an AJAX request to the server
+                $.ajax({
+                    url: "studenttimetable.html", // Replace with the actual URL to fetch timetable data
+                    method: "GET",
+                    data: { venue: venue }, // Send the venue name as a parameter
+                    success: function(response) {
+                        // If successful, redirect to the timetable page
+                        window.location.href = "studenttimetable.html";
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error:", error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>

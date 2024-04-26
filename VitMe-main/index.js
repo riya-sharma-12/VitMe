@@ -20,7 +20,72 @@ var nameSchema = new mongoose.Schema({
     password:String
 });
 var User = mongoose.model("Login", nameSchema);
-//signup
+var nameSchema1 = new mongoose.Schema({
+    username:String,
+    password:String
+});
+var User1 = mongoose.model("Teacherlogin", nameSchema1);
+var timetableschema = new mongoose.Schema({
+    day:String,
+    timing:String,
+    floor:String,
+    emptyclasses:String
+});
+var User2 = mongoose.model("Timetabledata", timetableschema);
+async function insertAllData(){
+    await User2.create([
+        {day:"Monday",floor:"0",timing:"10am",emptyclasses:"G01"},
+        {day:"Monday",floor:"1",timing:"10am",emptyclasses:"G02"},
+        {day:"Monday",floor:"2",timing:"10am",emptyclasses:""},
+        {day:"Monday",floor:"3",timing:"10am",emptyclasses:"G04"},
+        {day:"Monday",floor:"4",timing:"10am",emptyclasses:"G05"},
+        {day:"Monday",floor:"5",timing:"10am",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"10am",emptyclasses:"G02"},
+        {day:"Monday",floor:"0",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"1",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"2",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"3",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"4",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"5",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"11am",emptyclasses:""},
+        {day:"Monday",floor:"0",timing:"12pm",emptyclasses:"G06"},
+        {day:"Monday",floor:"1",timing:"12pm",emptyclasses:"G01"},
+        {day:"Monday",floor:"2",timing:"12pm",emptyclasses:""},
+        {day:"Monday",floor:"3",timing:"12pm",emptyclasses:""},
+        {day:"Monday",floor:"4",timing:"12pm",emptyclasses:"G05"},
+        {day:"Monday",floor:"5",timing:"12pm",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"12pm",emptyclasses:""},
+        {day:"Monday",floor:"0",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"1",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"2",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"3",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"4",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"5",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"2pm",emptyclasses:""},
+        {day:"Monday",floor:"0",timing:"3pm",emptyclasses:"G07"},
+        {day:"Monday",floor:"1",timing:"3pm",emptyclasses:"G08"},
+        {day:"Monday",floor:"2",timing:"3pm",emptyclasses:"G09"},
+        {day:"Monday",floor:"3",timing:"3pm",emptyclasses:"G10"},
+        {day:"Monday",floor:"4",timing:"3pm",emptyclasses:""},
+        {day:"Monday",floor:"5",timing:"3pm",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"3pm",emptyclasses:""},
+        {day:"Monday",floor:"0",timing:"4pm",emptyclasses:"G11"},
+        {day:"Monday",floor:"1",timing:"4pm",emptyclasses:""},
+        {day:"Monday",floor:"2",timing:"4pm",emptyclasses:""},
+        {day:"Monday",floor:"3",timing:"4pm",emptyclasses:""},
+        {day:"Monday",floor:"4",timing:"4pm",emptyclasses:""},
+        {day:"Monday",floor:"5",timing:"4pm",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"4pm",emptyclasses:""},
+        {day:"Monday",floor:"0",timing:"5pm",emptyclasses:"G12"},
+        {day:"Monday",floor:"1",timing:"5pm",emptyclasses:""},
+        {day:"Monday",floor:"2",timing:"5pm",emptyclasses:""},
+        {day:"Monday",floor:"3",timing:"5pm",emptyclasses:""},
+        {day:"Monday",floor:"4",timing:"5pm",emptyclasses:""},
+        {day:"Monday",floor:"5",timing:"5pm",emptyclasses:""},
+        {day:"Monday",floor:"6",timing:"5pm",emptyclasses:""},
+    ]);
+}
+//insertAllData();
 app.get("/",async(req,res)=>{
     res.sendFile(path.join(__dirname, 'page1.html'));
 })
@@ -33,14 +98,29 @@ app.get("/page2.html",async(req,res)=>{
 app.get("/login2.html",async(req,res)=>{
     res.sendFile(path.join(__dirname, 'login2.html'));
 })
+app.get("/login.html",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'login.html'));
+})
 app.get("/studenttimetable.html",async(req,res)=>{
     res.sendFile(path.join(__dirname, 'studenttimetable.html'));
+})
+app.get("/employeetimetable.html",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'employeetimetable.html'));
 })
 app.get("/employeeblockSelectionPage3.html",async(req,res)=>{
     res.sendFile(path.join(__dirname, 'employeeblockSelectionPage3.html'));
 })
+app.get("/studentblockSelectionPage3.html",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'studentblockSelectionPage3.html'));
+})
 app.get("/signup2.html",async(req,res)=>{
     res.sendFile(path.join(__dirname, 'signup2.html'));
+})
+app.get("/signup.html",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'signup.html'));
+})
+app.get("/book.html",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'book.html'));
 })
 app.post('/login2.html', (req,res)=>{
     var myData = new User(req.body);
@@ -52,143 +132,79 @@ app.post('/login2.html', (req,res)=>{
     res.status(400).send("Unable to save to database");
     });
 });
+app.post('/login.html', (req,res)=>{
+    var myData = new User1(req.body);
+    myData.save()
+    .then(item => {
+    res.sendFile(path.join(__dirname, 'login.html'));
+    })
+    .catch(err => {
+    res.status(400).send("Unable to save to database");
+    });
+});
 
-//login
 app.post('/studentblockSelectionPage3',async(req,res)=>{
     const {username,password}=req.body
     try{
         const users=await User.findOne({username:username});
 
         if(!users){
-            return res.json({detail:'User does not exist!'})
+            res.sendFile(path.join(__dirname, 'login2.html'));
         }
         if(password===users.password){
         const token=jwt.sign({username},'secret',{expiresIn:'1hr'})
             res.sendFile(path.join(__dirname, 'studentblockSelectionPage3.html'));
         } else{
-            res.json({detail:"Login failed"})
+            res.sendFile(path.join(__dirname, 'login2.html'));
+        }
+    }catch(err){
+        console.error(err)
+    }
+})
+app.post('/employeeblockSelectionPage3',async(req,res)=>{
+    const {username,password}=req.body
+    try{
+        const users=await User1.findOne({username:username});
+
+        if(!users){
+            res.sendFile(path.join(__dirname, 'login.html'));
+        }
+        if(password===users.password){
+        const token=jwt.sign({username},'secret',{expiresIn:'1hr'})
+            res.sendFile(path.join(__dirname, 'employeeblockSelectionPage3.html'));
+        } else{
+            res.sendFile(path.join(__dirname, 'login.html'));
         }
     }catch(err){
         console.error(err)
     }
 })
 
+app.post('/book',async(req,res)=>{
+    const {day,classroom,floor,startTime}=req.body
+    try{
+        const users=await User2.findOne({day:day,timing:startTime,floor:floor,emptyclasses:classroom});
+
+        if(!users){
+            res.sendFile(path.join(__dirname, 'error.html'));
+        }
+        else{
+        await User2.deleteOne({day:day,timing:startTime,floor:floor,emptyclasses:classroom});
+        res.sendFile(path.join(__dirname, 'confirmation.html'));
+        }
+    }catch(err){
+        console.error(err)
+    }
+})
+app.post('/cancel',async(req,res)=>{
+
+    const {day,classroom,floor,startTime}=req.body
+    try{
+        await User2.create({day:day,timing:startTime,floor:floor,emptyclasses:classroom});
+        res.sendFile(path.join(__dirname, 'canceledbooking.html'));
+    }catch(err){
+        console.error(err)
+    }
+})
 app.listen(PORT, ()=> console.log(`Server running on PORT ${PORT}`))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import express from "express";
-import bodyParser from "body-parser";
-import pg from "pg";
-import fs from "fs";
-
-const app = express();
-const port = 3000;
-
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "hello",
-  port: 5432,
-});
-
-db.connect();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
-
-// Function to fetch timetable data from PostgreSQL
-async function fetchTimetableData() {
-    try {
-        const result = await db.query("SELECT * FROM timetable");
-        return result.rows;
-    } catch (err) {
-        console.error("Error fetching timetable data:", err);
-        return [];
-    }
-}
-
-// Route to serve the HTML page with timetable data injected
-app.get("/", async (req, res) => {
-    try {
-        const timetableData = await fetchTimetableData();
-        fs.readFile("index.html", "utf8", (err, data) => {
-            if (err) {
-                console.error("Error reading HTML file:", err);
-                res.status(500).send("Internal Server Error");
-            } else {
-                const modifiedHtml = injectTimetableData(data, timetableData);
-                res.send(modifiedHtml);
-            }
-        });
-    } catch (err) {
-        console.error("Error:", err);
-        res.status(500).send("Internal Server Error");
-    }
-});
-
-// Function to inject timetable data into HTML
-function injectTimetableData(html, timetableData) {
-    let injectedHtml = html;
-
-    timetableData.forEach(row => {
-        const day = row.day;
-        const timeSlot1 = JSON.parse(row.timeslot_1);
-        const timeSlot2 = JSON.parse(row.timeslot_2);
-
-        // Inject time slot 1 data
-        injectedHtml = injectedHtml.replace(
-            `"${day}"`,
-            `"${day}": ${JSON.stringify(timeSlot1)}`
-        );
-
-        // Inject time slot 2 data
-        injectedHtml = injectedHtml.replace(
-            `"${day}"`,
-            `"${day}": ${JSON.stringify(timeSlot2)}`
-        );
-    });
-
-    return injectedHtml;
-}
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
-*/
